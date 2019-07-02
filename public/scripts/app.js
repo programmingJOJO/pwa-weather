@@ -146,7 +146,7 @@ function renderForecast(card, data) {
  * @return {Object} The weather forecast, if the request fails, return null.
  */
 function getForecastFromNetwork(coords) {
-  return fetch(`/forecast/${coords}?lang=de&units=si`)
+  return fetch(`/forecast/${coords}?lang=de&units=si&exclude=hourly`)
       .then((response) => {
         return response.json();
       })
@@ -166,7 +166,7 @@ function getForecastFromCache(coords) {
   if (!('caches' in window)) {
     return null;
   }
-  const url = `${window.location.origin}/forecast/${coords}`;
+  const url = `${window.location.origin}/forecast/${coords}?lang=de&units=si&exclude=hourly`;
   return caches.match(url)
     .then((response) => {
       if (response) {
