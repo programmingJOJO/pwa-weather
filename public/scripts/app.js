@@ -166,7 +166,7 @@ function getForecastFromCache(coords) {
   if (!('caches' in window)) {
     return null;
   }
-  const url = `${window.location.origin}/forecast/${coords}?lang=de&units=si&exclude=hourly`;
+  const url = `${window.location.origin}/forecast/${process.env.DARKSKY_API_KEY}/${coords}?lang=de&units=si&exclude=hourly`;
   return caches.match(url)
     .then((response) => {
       if (response) {
@@ -212,10 +212,10 @@ function updateData() {
     const location = weatherApp.selectedLocations[key];
     const card = getForecastCard(location);
     // CODELAB: Add code to call getForecastFromCache
-    getForecastFromCache(location.geo)
+    /*getForecastFromCache(location.geo)
         .then((forecast) => {
           renderForecast(card, forecast);
-        });
+        });*/
 
     // Get the forecast data from the network.
     getForecastFromNetwork(location.geo)
