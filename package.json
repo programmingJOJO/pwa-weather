@@ -5,7 +5,8 @@
   "homepage": "https://codelabs.developers.google.com/codelabs/your-first-pwapp/",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start_local": "node -r dotenv/config server.js"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -27,5 +28,8 @@
     "progressive-web-app",
     "pwa",
     "installable web app"
-  ]
+  ],
+  "devDependencies": {
+    "dotenv": "^8.0.0"
+  }
 }

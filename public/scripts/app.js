@@ -100,10 +100,6 @@ function renderForecast(card, data) {
     .textContent = Math.round(data.currently.temperature);
   card.querySelector('.current .humidity .value')
     .textContent = Math.round(data.currently.humidity * 100);
-  card.querySelector('.current .wind .value')
-    .textContent = Math.round(data.currently.windSpeed);
-  card.querySelector('.current .wind .direction')
-    .textContent = Math.round(data.currently.windBearing);
   const sunrise = luxon.DateTime
     .fromSeconds(data.daily.data[0].sunriseTime)
     .setZone(data.timezone)
@@ -122,7 +118,7 @@ function renderForecast(card, data) {
     const forecastFor = luxon.DateTime
       .fromSeconds(forecast.time)
       .setZone(data.timezone)
-      .toFormat('ccc');
+      .toFormat('ccc', { locale: 'de' });
     tile.querySelector('.date').textContent = forecastFor;
     tile.querySelector('.icon').className = `icon ${forecast.icon}`;
     tile.querySelector('.temp-high .value')
@@ -211,10 +207,10 @@ function updateData() {
     const location = weatherApp.selectedLocations[key];
     const card = getForecastCard(location);
     // CODELAB: Add code to call getForecastFromCache
-    /*getForecastFromCache(location.geo)
-        .then((forecast) => {
-          renderForecast(card, forecast);
-        });*/
+    getForecastFromCache(location.geo)
+      .then((forecast) => {
+        renderForecast(card, forecast);
+      });
 
     // Get the forecast data from the network.
     getForecastFromNetwork(location.geo)

@@ -18,6 +18,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,6 +41,7 @@
   <meta name="theme-color" content="#2F3BA2" />
 
 </head>
+
 <body>
 
   <header class="header">
@@ -87,20 +89,14 @@
             <span class="label">Luftfeuchtigkeit:</span>
             <span class="value"></span><span class="scale">%</span>
           </div>
-          <div class="wind">
-            <span class="label">Wind:</span>
-            <span class="value"></span>
-            <span class="scale">mph</span>
-            <span class="direction"></span>°
-          </div>
           <div class="sunrise">
             <span class="label">Sonnenaufgang:</span>
             <span class="value"></span>
           </div>
           <div class="sunset">
-              <span class="label">Sonnenuntergang:</span>
-              <span class="value"></span>
-            </div>
+            <span class="label">Sonnenuntergang:</span>
+            <span class="value"></span>
+          </div>
         </div>
       </div>
       <div class="future">
@@ -108,7 +104,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -118,7 +114,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -128,7 +124,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -138,7 +134,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -148,7 +144,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -158,7 +154,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -168,7 +164,7 @@
           <div class="date"></div>
           <div class="icon"></div>
           <div class="temp-high">
-            <span class="value"></span>°
+            <strong class="value"></strong>°
           </div>
           <div class="temp-low">
             <span class="value"></span>°
@@ -206,12 +202,13 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
-            .then((reg) => {
-              console.log('Service worker registered.', reg);
-            });
+          .then((reg) => {
+            console.log('Service worker registered.', reg);
+          });
       });
     }
   </script>
 
 </body>
+
 </html>
