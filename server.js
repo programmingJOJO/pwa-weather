@@ -139,8 +139,8 @@ function generateFakeForecast(location) {
  * @param {Response} resp response object from Express.
  */
 function getForecast(req, resp) {
-  const location = req.params.location || '40.7720232,-73.9732319';console.log('test')
-  const url = `${BASE_URL}/${API_KEY}/${location}?lang=de&units=si&exclude=hourly`;
+  const location = req.params.location || '40.7720232,-73.9732319';
+  const url = `${BASE_URL}/${API_KEY}/${location}?lang=de&units=si`;
   fetch(url).then((resp) => {
     return resp.json();
   }).then((data) => {
@@ -190,4 +190,4 @@ function startServer() {
   });
 }
 
-//startServer();
+startServer();
