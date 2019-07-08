@@ -247,9 +247,26 @@ function loadLocationList() {
   if (!locations || Object.keys(locations).length === 0) {
     const key = '49.45,11.08';
     locations = {};
-    locations[key] = { label: 'Nürnberg', geo: '49.45,11.08' };
+    locations[key] = { label: 'Nürnberg, Bayern', geo: '49.447778,11.068333' };
   }
   return locations;
+}
+
+/**
+ * Loads json data 
+ * @param {function} callback 
+ */
+function loadJSON(callback) {
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', '../de.json', true); // Replace 'my_data' with the path to your file
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);
 }
 
 /**
@@ -257,6 +274,22 @@ function loadLocationList() {
  * renders the initial data.
  */
 function init() {
+  // Load cities
+  loadJSON(function (response) {
+    // Parse JSON string into object
+    var actual_JSON = JSON.parse(response);
+    const selectElm = document.getElementById('selectCityToAdd');
+    actual_JSON.forEach((city) => {
+      let optionElm = document.createElement('option');
+      optionElm.value = `${city.lat},${city.lng}`;
+      optionElm.innerText = `${city.city}`;
+      if (city.city !== city.country) {
+        optionElm.innerText += `, ${city.country}`;
+      }
+      selectElm.appendChild(optionElm);
+    })
+  });
+
   // Get the location list, and update the UI.
   weatherApp.selectedLocations = loadLocationList();
   updateData();

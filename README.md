@@ -1,35 +1,18 @@
-# Your First Progressive Web App Codelab
+# Progressive Web App | Weather App
 
-These are the resource files needed for the
+These are modified resource files from the
 [Your First Progressive Web App][codelab] codelab.
 
-In this codelab, you'll  build a weather web app using Progressive Web App
-techniques. Your app will:
+The app is installable on android (tested with Firefox) an desktop (tested with Chrome).
 
-* Use responsive design, so it works on desktop or mobile.
-* Be fast & reliable, using a service worker to precache the app resources
-  (HTML, CSS, JavaScript, images) needed to run, and cache the weather data
-  at runtime to improve performance.
-* Be installable, using a web app manifest and the `beforeinstallprompt` event
-  to notify the user it's installable.
+## Getting Started
 
+You need `node.js` and `npm` on your local machine.
 
-## What you'll learn
-
-* How to create and add a web app manifest
-* How to provide a simple offline experience
-* How to provide a full offline experience
-* How to make your app installable
-
-## Getting started
-
-To get started, check out the [codelab instruction][codelab]
-
-
-## Feedback
-
-This is a work in progress, if you find a mistake, please [file an issue][git-issue].
-
+1. Get an free API-Key from [Dark Sky API][darksky] and put it into the `.env` file.
+2. Run `npm install` inside the project.
+3. After installing packages run `npm run start_local`.
+4. Open http://localhost:3000 in your browser and you should see the application.
 
 ## License
 
@@ -51,4 +34,4 @@ specific language governing permissions and limitations under the License.
 
 
 [codelab]: https://codelabs.developers.google.com/codelabs/your-first-pwapp/
-[git-issue]: https://github.com/googlecodelabs/your-first-pwapp/issues
+[darksky]: https://darksky.net/dev

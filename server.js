@@ -17,7 +17,7 @@
  * limitations under the License
  */
 'use strict';
-
+const fs = require('fs');
 const express = require('express');
 const fetch = require('node-fetch');
 const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
